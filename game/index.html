@@ -69,6 +69,29 @@
                 <div id="unity-fullscreen-button"></div>
             </div>
         </div>
+        <style>
+            #button-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                background-color: #333;
+            }
+
+                #button-container button {
+                    margin: 0 5px;
+                    padding: 10px 20px;
+                    font-size: 20px;
+                    color: white;
+                    background-color: #555;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+        </style>
         <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -125,7 +148,9 @@
         container.className = "unity-mobile";
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
+         config.devicePixelRatio = 1;
+        canvas.style.width = "100%";
+        canvas.style.height = "400px";
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         canvas.style.width = "1080px";
